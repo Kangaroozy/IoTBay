@@ -1,0 +1,48 @@
+/* 
+    Created on : Mar 23, 2021, 10:05:47 PM
+    Author     : Ruihui Lai
+*/
+
+body{
+    background: url("index.jpg")no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; 
+}
+
+
+
+img{
+    object-fit: cover;
+    width: 700px;
+    height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 16%;
+}
+
+input[type="button"]{
+    position: relative;
+    width: 100px;
+    height: 40px;
+    padding: 10px;
+    background: #7889db;
+    color:#fff;
+    cursor:pointer;
+    border: none;
+    outline:none;
+    font-size: 14px;
+    letter-spacing:1px;
+    border-radius: 10px;
+    margin-right: 60px;
+}
+
+.buttons{
+    position: relative;
+    padding: 25px;
+    text-align: center;
+    margin-top: -15px;
+    border-radius: 10px;
+}

@@ -1,0 +1,50 @@
+/* 
+    Created on : Mar 21, 2021, 6:12:58 PM
+    Author     : Ruihui Lai
+*/
+
+body{
+    background: url("welcome.jpg")no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; 
+}
+
+.welcome {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 25px;
+    margin-left: -20%;
+    margin-top: -3%;
+    border-radius: 10px;
+    text-align: center;
+}
+
+h1{
+    font-weight: bold;
+    font-size: 128px;
+    color: black;
+}
+
+h6{
+    font-size: 16px;
+    color: black;
+    margin-top:-50px;
+}
+
+p{
+    font-size: 24px;
+    color: black;
+    margin-top:-100px;
+}
+
+a:link {
+  color: #7889db;
+}
+
+/* visited link */
+a:visited {
+  color: #7889db;
+}
