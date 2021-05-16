@@ -14,17 +14,29 @@ import java.util.Date;
  */
 public class Payment implements Serializable {
     private int paymentID;
-    private Date date;
+    private String date;
     private String paymentMethod;
     private int orderID;
     private double paymentAmount;
-
-    public Payment(int paymentID, Date date, String paymentMethod, int orderID, double paymentAmount) {
+    private int cvv;
+    private String creditnum;
+    
+    public Payment(int paymentID, String date, String paymentMethod, int orderID, double paymentAmount, int cvv, String creditnum) {
         this.paymentID = paymentID;
         this.date = date;
         this.paymentMethod = paymentMethod;
         this.orderID = orderID;
         this.paymentAmount = paymentAmount;
+        this.cvv = cvv;
+        this.creditnum=creditnum;
+    }
+
+    public Payment(int paymentID, String date, String paymentMethod, int orderID, String paymentAmount, int cvv, String creditnum) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Payment(int paymentID, String paymentMethod, int orderID, double paymentAmount, int cvv, String creditnum) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getPaymentID() {
@@ -35,11 +47,11 @@ public class Payment implements Serializable {
         this.paymentID = paymentID;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -66,5 +78,21 @@ public class Payment implements Serializable {
     public void setPaymentAmount(double paymentAmount) {
         this.paymentAmount = paymentAmount;
     }
-
+    
+    public int getCVV(){
+        return cvv;
+    }
+    
+    public void setCVV(int cvv){
+        this.cvv=cvv;
+    }
+    
+    public String getCreditNum(){
+        return creditnum;
+    }
+    
+    public void setCreditNum(String creditnum){
+        this.creditnum=creditnum;
+    }
+    
 }

@@ -15,6 +15,7 @@ public class Validator implements Serializable {
     private String emailPattern = "([a-zA-Z0-9]+)(([._-])([a-zA-Z0-9]+))*(@)([a-z]+)(.)([a-z]{3})((([.])[a-z]{0,2})*)";
     private String namePattern = "([A-Z][a-z]+)";
     private String passwordPattern = "[a-z0-9]{4,}";
+    private String datePattern = "[0-3]?[0-9]/[0-3]?[0-9]/(?:[0-9]{2})?[0-9]{2}$";  
 
     public Validator() {
     }
@@ -68,4 +69,9 @@ public class Validator implements Serializable {
             return false;
         }
     }
+    
+       public boolean validateDate(String date){                       
+      return validate(datePattern,date);   
+
+   }
 }

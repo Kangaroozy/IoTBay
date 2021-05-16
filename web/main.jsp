@@ -19,7 +19,7 @@
         <title>Main Page</title>
     </head>
     <body>
-        <span id="links"><a href="ProductListServlet"> Staff View</a> | <a href="profile.jsp"> Profile</a> | <a href="ViewAllOrderServlet"> View All Orders</a> | <a href="LogoutServlet"> Logout</a></span>
+        <span id="links"><a href="ProductListServlet"> Staff View</a> | <a href="Payment.jsp"> Payment</a> |<a href="profile.jsp"> Profile</a> | <a href="ViewAllOrderServlet"> View All Orders</a> | <a href="LogoutServlet"> Logout</a></span>
         <h1>Main page</h1>
         <%
             ArrayList<Product> products = (ArrayList<Product>) request.getAttribute("list");
