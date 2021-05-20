@@ -30,16 +30,17 @@ import javax.servlet.http.Part;
 public class DeletePaymentServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
         HttpSession session = request.getSession();
-        DBPaymentManager paManager = (DBPaymentManager) session.getAttribute("paManager");
+        DBPaymentManager pamanager = (DBPaymentManager) session.getAttribute("pamanager");
         int paymentID = Integer.parseInt(request.getParameter("paymentID"));
-
+        
         try {
-            paManager.deletePayment(paymentID);
-            response.sendRedirect("PaymentListServlet");
+            pamanager.deletePayment(paymentID);
+            request.getRequestDispatcher("Delete_Payment.jsp").include(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(CreatePaymentServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeletePaymentServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
