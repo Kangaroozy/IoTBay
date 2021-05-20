@@ -21,8 +21,6 @@
                 <table id="table">
                     <tr><td>PaymentID:</td><td><input type="text" name="paymentID" required="true"></td></tr>
                     
-                    <tr><td>Date:</td><td><input type="text" name="Date"> </td></tr>
-                 
                 </table>
                 <div>
                     <a href="Payment.jsp">Cancle</a>  
