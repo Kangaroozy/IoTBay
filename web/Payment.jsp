@@ -24,8 +24,8 @@
             <input type="button" value="Find a payment" onclick="location.href = 'Find_Payment.jsp'">
         </div>
         <% 
-            DBPaymentManager manager = (DBPaymentManager)session.getAttribute("paManager");
-            ArrayList<Payment> payments = manager.fetchPayment();  
+            DBPaymentManager pamanager = (DBPaymentManager)session.getAttribute("pamanager");
+            ArrayList<Payment> payments = pamanager.fetchPayment();  
             //ArrayList<Payment> payments = (ArrayList<Payment>)request.getAttribute("list");
         %>
         <h1>Payment List</h1>
@@ -55,8 +55,8 @@
                 <td><%=payment.getOrderID()%></td>
                 <td><%=payment.getCVV()%></td>
                 <td><%=payment.getCreditNum()%></td>
-                <td><a href="PaymentEditServlet?ID=<%=payment.getPaymentID()%>">Edit</a></td>
-                <td><a href="Delete_Payment.jsp?id=<%=payment.getPaymentID()%>" onclick="">Delete</a>
+                <td><a href="Update_Payment.jsp?paymentID=<%=payment.getPaymentID()%>">Edit</a></td>
+                <td><a href="Delete_Payment.jsp?paymentID=<%=payment.getPaymentID()%>" onclick="">Delete</a>
             </tr>
             <%}%>
         </table>
