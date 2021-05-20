@@ -5,7 +5,7 @@
  */
 package iotbay.controller;
 
-import iotbay.model.Customer;
+import iotbay.model.Payment;
 import java.io.IOException;
 import iotbay.model.dao.*;
 import javax.servlet.http.HttpSession;
@@ -27,32 +27,26 @@ public class CreatePaymentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         Validator validator =new Validator();
-        DBPaymentManager paManager = (DBPaymentManager) session.getAttribute("paManager");
+        
         int orderID = Integer.parseInt(request.getParameter("OrderID"));
+        
         String date = request.getParameter("Date");
         String paymentMethod = request.getParameter("PaymentMethod");
         String creditnum = request.getParameter("CreditNum");
         int cvv = Integer.parseInt(request.getParameter("CVV"));
-        double paymentAmount = Integer.parseInt(request.getParameter("paymentAmount"));
-        int paymentID = Integer.parseInt(request.getParameter("paymentID"));
+        double paymentAmount = Double.parseDouble(request.getParameter("paymentAmount"));
+        DBPaymentManager pamanager = (DBPaymentManager) session.getAttribute("pamanager");
+        validator.clear(session);
         
-        Customer customer = (Customer) session.getAttribute("customer");
-
-        if(!validator.validateDate(date)){
-            session.setAttribute("dateErr","Date format incorrect");
-            request.getRequestDispatcher("addpayment.jsp").include(request, response);
-            
-        }else{
             try {
-                
-            paManager.addPayment(orderID,paymentID,paymentAmount, paymentMethod,cvv,creditnum );
-            paManager.updatePayment(paymentID,paymentMethod,orderID,paymentAmount,cvv,creditnum);
-            request.setAttribute("value", paymentID);
-            request.getRequestDispatcher("Create_Payment.jsp").include(request, response);
+            pamanager.addPayment(date,orderID,paymentAmount, paymentMethod,cvv,creditnum );
+            Payment payment = new Payment(date,paymentMethod,paymentAmount,orderID, cvv,creditnum);
+            session.setAttribute("Payment",payment);
+            request.getRequestDispatcher("Payment.jsp").include(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(CreatePaymentServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         
-    }
+    
 }
