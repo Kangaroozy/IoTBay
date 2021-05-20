@@ -28,9 +28,10 @@ public class PaymentEditServlet extends HttpServlet {
         HttpSession session = request.getSession();
         DBPaymentManager paManager = (DBPaymentManager) session.getAttribute("paManager");
         int PayID = Integer.parseInt(request.getParameter("ID"));
+        String date = request.getParameter("Date");
 
         try {
-            Payment payment = paManager.findPayment(PayID);
+            Payment payment = paManager.findPayment(PayID,date);
             request.setAttribute("payment", payment);
             request.getRequestDispatcher("Update_Payment.jsp").include(request, response);
         } catch (SQLException ex) {
