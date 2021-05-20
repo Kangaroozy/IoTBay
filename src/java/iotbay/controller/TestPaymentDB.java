@@ -8,7 +8,6 @@ package iotbay.controller;
 import java.io.PrintStream;
 import java.sql.*;
 import java.util.*;
-import java.util.logging.*;
 import iotbay.model.Payment;
 import iotbay.model.dao.*;
 
@@ -35,20 +34,20 @@ public class TestPaymentDB {
     private void testCreate() throws SQLException {
         int orderID = Integer.parseInt(read("OrderID"));
         int cvv = Integer.parseInt(read("CVV"));
-        double paymentAmount = Integer.parseInt(read("paymentAmount"));
-        int paymentID = Integer.parseInt(read("paymentID"));
+        double paymentAmount = Double.parseDouble(read("paymentAmount"));
+       
         System.out.println("Adding payment to the database: ");
-        manager.addPayment(read("date"), orderID,  paymentID,  paymentAmount, read("paymentMethod"),  cvv, read("creditnum"));
+        manager.addPayment(read("date"), orderID,paymentAmount, read("paymentMethod"),  cvv, read("creditnum"));
         System.out.println("Payment added successfully ");
     }
     
-    /*private void testRead() throws SQLException{
-        int ID = Integer.parseInt(read("ID"));
+    private void testRead() throws SQLException{
+        int paymentID = Integer.parseInt(read("paymentID"));
         String date = read("DATE");
-        Payment payment = manager.readPayment(ID, date);
+        Payment payment = manager.readPayment(paymentID, date);
         String exist = (payment != null) ? "Payment exists in the database" : "Payment does not exist!!!";
         System.out.println(exist);
-    }*/
+    }
 
     private void testUpdate() throws SQLException{
        int orderID = Integer.parseInt(read("OrderID"));
@@ -61,8 +60,8 @@ public class TestPaymentDB {
     }
     
     private void testDelete() throws SQLException{
-        int ID = Integer.parseInt(read("ID"));
-        manager.deletePayment(ID);
+        int paymentID = Integer.parseInt(read("paymentID"));
+        manager.deletePayment(paymentID);
         System.out.println("Payment deleted successfully");
     }
     
@@ -84,7 +83,7 @@ public class TestPaymentDB {
         while((c=read("Command [c/r/u/d/f/x]").charAt(0)) != 'x'){
             switch(c){
                 case 'c': testCreate();break;
-               // case 'r': testRead(); break;
+                case 'r': testRead(); break;
                 case 'u': testUpdate(); break;
                 case 'd': testDelete();break;
                 case 'f': testFetch();break;
