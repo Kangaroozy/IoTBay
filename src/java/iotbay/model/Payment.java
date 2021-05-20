@@ -16,26 +16,22 @@ public class Payment implements Serializable {
     private int paymentID;
     private String date;
     private String paymentMethod;
-    private int orderID;
+    private int OrderID;
     private double paymentAmount;
     private int cvv;
     private String creditnum;
     
-    public Payment(int paymentID, String date, String paymentMethod, int orderID, double paymentAmount, int cvv, String creditnum) {
+    public Payment(int paymentID, String date, String paymentMethod, double paymentAmount,int OrderID,  int cvv, String creditnum) {
         this.paymentID = paymentID;
         this.date = date;
         this.paymentMethod = paymentMethod;
-        this.orderID = orderID;
+        this.OrderID = OrderID;
         this.paymentAmount = paymentAmount;
         this.cvv = cvv;
         this.creditnum=creditnum;
     }
 
-    public Payment(int paymentID, String date, String paymentMethod, int orderID, String paymentAmount, int cvv, String creditnum) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public Payment(int paymentID, String paymentMethod, int orderID, double paymentAmount, int cvv, String creditnum) {
+    public Payment(String date, String paymentMethod, double paymentAmount, int orderID, int cvv, String creditnum) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -64,11 +60,11 @@ public class Payment implements Serializable {
     }
 
     public int getOrderID() {
-        return orderID;
+        return OrderID;
     }
 
-    public void setOrderID(int orderID) {
-        this.orderID = orderID;
+    public void setOrderID(int OrderID) {
+        this.OrderID = OrderID;
     }
 
     public double getPaymentAmount() {
