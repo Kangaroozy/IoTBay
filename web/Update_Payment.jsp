@@ -11,11 +11,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Update Page</title>
+    </head>
+    <body>
+        <h1>Update Payment</h1>
         <%
             Payment payment = (Payment) request.getAttribute("payment");
         %>
-    </head>
-    <body>
         <span><a href="Payment.jsp">Back</a> | <a href="logout.jsp">Logout</a></span>
         <form id="form" action="PaymentUpdateServlet" method="post">
             <table>
